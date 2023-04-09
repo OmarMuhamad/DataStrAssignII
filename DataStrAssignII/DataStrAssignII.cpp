@@ -2,8 +2,14 @@
 // Last update 4/7/2023
 
 #include "ArrayBasedList.h"
+#include "SingleLinkedList.h"
 int main() {
-	ArrayBasedList<int> arr(20);
-
-	cout << arr.maxListSize();
+	SingleLinkedList<int> sll;
+	sll.insertAtTail(5);
+	sll.insertAtTail(5);
+	sll.insertAtTail(5);
+	sll.insertAtTail(5);
+	sll.insertAtTail(5);
+	
+	cout << sll.isEmpty();
 }

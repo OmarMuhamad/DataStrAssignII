@@ -3,7 +3,7 @@
 using namespace std;
 template<typename Type>
 struct NodeType {
-	Type* info;
+	Type info;
 	NodeType<Type>* next;
 };
 template<typename Type>
@@ -15,7 +15,7 @@ private:
 public:
 	SingleLinkedList() { first = NULL, last = NULL; }
 	void insertAtHead(Type element);//
-	void insertAtTail(Type element);//
+	void insertAtTail(const Type element);//
 	void insertAt(Type element, int index);//
 	void removeAtHead();//
 	void removeAtTail();//
@@ -33,7 +33,8 @@ public:
 };
 template<typename Type>
 void SingleLinkedList<Type>::insertAtHead(Type element) {
-	NodeType<Type>* newNode = new NodeType<Type>;
+	NodeType<Type>* newNode; 
+	newNode = new NodeType<Type>;
 	newNode->info = element;
 	newNode->next = NULL;
 	if (first == NULL and last == NULL) {
@@ -48,7 +49,7 @@ void SingleLinkedList<Type>::insertAtHead(Type element) {
 	}
 }
 template<typename Type>
-void SingleLinkedList<Type>::insertAtTail(Type element) {
+void SingleLinkedList<Type>::insertAtTail(const Type element) {
 	NodeType<Type>* newNode = new NodeType<Type>;
 	newNode->info = element;
 	newNode->next = NULL;
@@ -103,47 +104,46 @@ void SingleLinkedList<Type>::removeAtHead() {
 template<typename Type>
 void SingleLinkedList<Type>::removeAtTail() {
 	NodeType<Type>* current = new NodeType<Type>;
-	NodeType<Type>* trialCurrent = new NodeType<Type>;
+	NodeType<Type>* trailCurrent = new NodeType<Type>;
 	current = first;
-	while (current->next != Null) {
+	while (current->next != NULL) {
 		trailCurrent = current;
-		current = current->next
+		current = current->next;
 	}
 	last = trailCurrent;
 	delete current;
 	
 }
-template<typename Type> 
-void SingleLinkedList<Type>::removeAt(Type element, int index) {
-	int counter = 1;
-	NodeType<Type>* newNode = new NodeType<Type>;
-
-	newNode->info = element;
-	newNode->next = NULL;
-	NodeType<Type>* current = new NodeType<Type>;
-	NodeType<Type>* trailCurrent = new NodeType<Type>;
-	while (current != NULL) {
-		if (counter == index) {
-			if (counter == 1) {
-				insertAtHead(element);
-			}
-			else if (counter == count) {
-				insertAtTail(element);
-			}
-			else {
-				newNode->next = current;
-				trailCurrent->next = newNode;
-			}
-		}
-		else {
-			counter++;
-			trailCurrent = current;
-			current = current->next;
-		}
-	}
-	count++;
-}
+//template<typename Type> 
+//void SingleLinkedList<Type>::removeAt(int index) {
+//	int counter = 1;
+//	NodeType<Type>* newNode = new NodeType<Type>;
+//
+//	
+//	NodeType<Type>* current = new NodeType<Type>;
+//	NodeType<Type>* trailCurrent = new NodeType<Type>;
+//	while (current != NULL) {
+//		if (counter == index) {
+//			if (counter == 1) {
+//				insertAtHead(element);
+//			}
+//			else if (counter == count) {
+//				insertAtTail(element);
+//			}
+//			else {
+//				newNode->next = current;
+//				trailCurrent->next = newNode;
+//			}
+//		}
+//		else {
+//			counter++;
+//			trailCurrent = current;
+//			current = current->next;
+//		}
+//	}
+//	count++;
+//}
 template<typename Type>
 bool SingleLinkedList<Type>::isEmpty() {
-	return count == 0;
+	return (count == 0);
 }
