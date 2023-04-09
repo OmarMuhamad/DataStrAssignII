@@ -71,10 +71,18 @@ void ArrayBasedList<Type>::insertAt(Type element, int index) {
 	}
 }
 
-//template<typename Type>
-//void ArrayBasedList<Type>::removeAt(int index) {
-//
-//}
+template<typename Type>
+void ArrayBasedList<Type>::removeAt(int index) {
+	if (index >= length or index < 0) {
+		cout << "Out of Range!" << endl;
+	}
+	else {
+		for (int i = length; i >= index; i--) {
+			list[i - 1] = list[i];
+		}
+	}
+	length--;
+}
 
 template<typename Type>
 void ArrayBasedList<Type>::replaceAt(Type element, int index) {
