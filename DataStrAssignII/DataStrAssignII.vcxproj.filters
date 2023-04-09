@@ -23,7 +23,7 @@
     <ClInclude Include="ArrayBasedList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="LinkedList.h">
+    <ClInclude Include="SingleLinkedList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
