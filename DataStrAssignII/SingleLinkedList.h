@@ -181,4 +181,5 @@ void SingleLinkedList<Type>::clear(){
 	}
 	last = NULL;
 	count = 0;
+
 }
