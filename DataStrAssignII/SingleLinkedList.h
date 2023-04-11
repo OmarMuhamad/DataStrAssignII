@@ -1,4 +1,5 @@
 // Single Linked List Header With Functions
+// Author Omar Mohammad
 #include <iostream>
 using namespace std;
 template<typename Type>
@@ -14,20 +15,20 @@ private:
 	int count = 0;
 public:
 	SingleLinkedList() { first = NULL, last = NULL; }
-	void insertAtHead(Type element);//
-	void insertAtTail(const Type element);//
-	void insertAt(Type element, int index);//
-	void removeAtHead();//
-	void removeAtTail();//
+	void insertAtHead(Type element);
+	void insertAtTail(const Type element);
+	void insertAt(Type element, int index);
+	void removeAtHead();
+	void removeAtTail();
 	void removeAt(int index);
 	void retrieveAt(int index);
 	void replaceAt(Type newElement, int index);
 	bool isExist(Type element);
 	bool isItemAtEqual(Type element, int index);
 	void swap(int index1, int index2);
-	bool isEmpty();//
+	bool isEmpty();
 	int linkedListSize();
-	bool clear();
+	void clear();
 	void print();
 
 };
@@ -165,4 +166,19 @@ void SingleLinkedList<Type>::print() {
 		newNode = newNode->next;
 	}
 	cout << endl;
+}
+template<typename Type>
+int SingleLinkedList<Type>::linkedListSize() {
+	return count;
+}
+template<typename Type>
+void SingleLinkedList<Type>::clear(){
+	NodeType<Type>* current = new NodeType<Type>;
+	while (first != NULL) {
+		current = first;
+		first = first->next;
+		delete current
+	}
+	last = NULL;
+	count = 0;
 }

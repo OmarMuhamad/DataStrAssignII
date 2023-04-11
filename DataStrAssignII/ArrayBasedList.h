@@ -77,8 +77,8 @@ void ArrayBasedList<Type>::removeAt(int index) {
 		cout << "Out of Range!" << endl;
 	}
 	else {
-		for (int i = length; i >= index; i--) {
-			list[i - 1] = list[i];
+		for (int i = index; i < length - 1; i++) {
+			list[i] = list[i + 1];
 		}
 	}
 	length--;
