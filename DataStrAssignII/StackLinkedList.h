@@ -18,7 +18,6 @@ public:
 	Type top() {
 		return Top->info;
 	}
-
 	void Push(Type data) {
 		NodeType<Type>* newNode = new NodeType<Type>;
 		newNode->info = data;
