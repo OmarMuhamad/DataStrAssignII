@@ -41,7 +41,6 @@ void ArrayBasedList<Type>::insertFirst(Type element) {
 		list[0] = element;
 	}
 }
-
 template<typename Type>
 void ArrayBasedList<Type>::insertLast(Type element) {
 	if (length == maxSize) {
