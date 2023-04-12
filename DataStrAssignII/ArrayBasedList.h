@@ -27,6 +27,7 @@ ArrayBasedList<Type>::ArrayBasedList(int sz) {
 	length = 0;
 	maxSize = sz;
 }
+
 template<typename Type>
 void ArrayBasedList<Type>::insertFirst(Type element) {
 	if (length == maxSize) {
@@ -41,6 +42,7 @@ void ArrayBasedList<Type>::insertFirst(Type element) {
 		list[0] = element;
 	}
 }
+
 template<typename Type>
 void ArrayBasedList<Type>::insertLast(Type element) {
 	if (length == maxSize) {
