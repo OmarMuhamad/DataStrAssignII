@@ -16,7 +16,7 @@ private:
 public:
 	SingleLinkedList() { first = NULL, last = NULL; }
 	void insertAtHead(Type element);
-	void insertAtTail(const Type element);
+	void insertAtTail(Type element);
 	void insertAt(Type element, int index);
 	void removeAtHead();
 	void removeAtTail();
@@ -32,6 +32,44 @@ public:
 	void print();
 
 };
+template<typename Type>
+bool SingleLinkedList<Type>::isItemAtEqual(Type element, int indx) {
+
+}
+
+template<typename Type>
+bool SingleLinkedList<Type>::isExist(Type element) {
+	NodeType<Type>* newNode = new NodeType<Type>;
+	newNode = first;
+	bool found = false;
+	while (newNode != NULL and !found) {
+		if (newNode->info == element) {
+			found = true;
+		}
+		else {
+			newNode = newNode->next;
+		}
+	}
+	return found;
+}
+
+template<typename Type>
+void SingleLinkedList<Type>::retrieveAt(int indx) {
+	NodeType<Type>* newNode = new NodeType<Type>;
+	newNode = first;
+	int counter = 0;
+	while (newNode != NULL) {
+		if (counter == indx) {
+			cout << newNode->info << endl;
+			break;
+		}
+		newNode = newNode->next;
+		counter++;
+
+	}
+	//cout << endl;
+}
+
 template<typename Type>
 void SingleLinkedList<Type>::insertAtHead(Type element) {
 	NodeType<Type>* newNode; 
@@ -49,6 +87,7 @@ void SingleLinkedList<Type>::insertAtHead(Type element) {
 		count++;
 	}
 }
+
 template<typename Type>
 void SingleLinkedList<Type>::insertAtTail(const Type element) {
 	NodeType<Type>* newNode = new NodeType<Type>;
@@ -65,6 +104,7 @@ void SingleLinkedList<Type>::insertAtTail(const Type element) {
 		count++;
 	}
 }
+
 template<typename Type>
 void SingleLinkedList<Type>::insertAt(Type element, int index) {
 	int counter = 1;
@@ -103,6 +143,7 @@ void SingleLinkedList<Type>::insertAt(Type element, int index) {
 	}
 	
 }
+
 template<typename Type>
 void SingleLinkedList<Type>::removeAtHead() {
 	NodeType<Type>* current = new NodeType<Type>;
@@ -110,8 +151,13 @@ void SingleLinkedList<Type>::removeAtHead() {
 	first = first->next;
 	delete current;
 }
+
 template<typename Type>
 void SingleLinkedList<Type>::removeAtTail() {
+	if (first == NULL) {
+		cout << "Cannot Delete from an Empty List\n";
+		return;
+	}
 	NodeType<Type>* current = new NodeType<Type>;
 	NodeType<Type>* trailCurrent = new NodeType<Type>;
 	current = first;
@@ -120,9 +166,12 @@ void SingleLinkedList<Type>::removeAtTail() {
 		current = current->next;
 	}
 	last = trailCurrent;
+	trailCurrent->next = NULL;
 	delete current;
+	count--;
 	
 }
+
 template<typename Type> 
 void SingleLinkedList<Type>::removeAt(int index) {
 	int counter = 1;
@@ -177,9 +226,8 @@ void SingleLinkedList<Type>::clear(){
 	while (first != NULL) {
 		current = first;
 		first = first->next;
-		delete current
+		delete current;
 	}
 	last = NULL;
 	count = 0;
-
 }
