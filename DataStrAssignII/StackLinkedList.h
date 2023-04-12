@@ -8,6 +8,7 @@ struct NodeType {
 	Type info;
 	NodeType<Type>* next;
 };
+
 template <typename Type>
 class Stack {
 private:
