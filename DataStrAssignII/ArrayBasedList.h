@@ -1,3 +1,5 @@
+// Array Based List Header With Functions
+// Author Omar Mohammad
 #include <iostream>
 using namespace std;
 
@@ -11,7 +13,7 @@ public:
 	void insertFirst(Type);
 	void insertLast(Type);
 	void insertAt(Type, int);
-	Type retrieveAt(int);
+	void retrieveAt(int);
 	void removeAt(int);
 	void replaceAt(Type, int);
 	bool isItemEqual(Type, int);
@@ -56,7 +58,7 @@ void ArrayBasedList<Type>::insertLast(Type element) {
 
 template<typename Type>
 void ArrayBasedList<Type>::insertAt(Type element, int index) {
-	if (index >= length or index < 0) {
+	if (index > length or index < 0) {
 		cout << "Out of Range!" << endl;
 	}
 	else if (length == maxSize) {
@@ -96,11 +98,11 @@ void ArrayBasedList<Type>::replaceAt(Type element, int index) {
 }
 
 template<typename Type>
-Type ArrayBasedList<Type>::retrieveAt(int index) {
+void ArrayBasedList<Type>::retrieveAt(int index) {
 	if (index >= length or index < 0) {
 		cout << "Out of Range!" << endl;
 	}
-	else return list[index];
+	else cout << list[index] << endl;;
 }
 
 template<typename Type>
