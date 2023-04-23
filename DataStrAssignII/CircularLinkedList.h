@@ -31,6 +31,101 @@ public:
 
 };
 template<typename Type>
+void CircularLinkedList<Type>::swap(int indx1, int indx2) {
+	if (indx1 == indx2) return;
+	NodeType<Type>* prevX = NULL, * prevY = NULL, * currX, * currY;
+	currX = new NodeType<Type>;
+	currY = new NodeType<Type>;
+	currX = first;
+	while (currX and currX->info != indx1) {
+		prevX = currX;
+		currX = currX->next;
+	}
+	currY = first;
+	while (currY and currY->info != indx2) {
+		prevY = currY;
+		currY = currY->next;
+	}
+	// if indx1 or indx2 are not in list
+	if (currX == NULL or currY == NULL) {
+		return;
+	}
+
+	if (prevX != NULL) {
+		prevX->next = currY;
+	}
+	else first = currY;
+	if (prevY != NULL) {
+		prevY->next = currX;
+	}
+	else {
+		first = currX;
+	}
+	// swap next pointers
+	NodeType<Type>* temp = new NodeType<Type>;
+	temp = currY->next;
+	currY->next = currX->next;
+	currX->next = temp;
+}
+
+template<typename Type>
+bool CircularLinkedList<Type>::isItemAtEqual(Type element, int indx) {
+	int counter = 1;
+	NodeType<Type>* current = new NodeType<Type>;
+	if (indx > count or indx < 0) {
+		cout << "Out Of Range\n";
+		return 0;
+	}
+	bool found = false;
+	current = first;
+	while (current != NULL) {
+		if (indx == counter) {
+			if (current->info == element) {
+				found = true;
+			}
+		}
+		current = current->next;
+		counter++;
+	}
+	return found;
+}
+
+template<typename Type>
+void CircularLinkedList<Type>::replaceAt(Type element, int index) {
+	int counter = 1;
+	NodeType<Type>* current = new NodeType<Type>;
+	if (index > count or index < 0) {
+		cout << "Out Of Range\n";
+		return;
+	}
+	current = first;
+	while (current != NULL) {
+		if (index == counter) {
+			current->info = element;
+		}
+		current = current->next;
+		counter++;
+	}
+}
+
+template<typename Type>
+void CircularLinkedList<Type>::retrieveAt(int indx) {
+	NodeType<Type>* newNode = new NodeType<Type>;
+	newNode = first;
+	int counter = 0;
+	while (newNode != NULL) {
+		if (counter == indx) {
+			cout << newNode->info << endl;
+			break;
+		}
+		newNode = newNode->next;
+		counter++;
+
+	}
+	//cout << endl;
+}
+
+template<typename Type>
 void CircularLinkedList<Type>::insertAtHead(Type element) {
 	NodeType<Type>* newNode;
 	newNode = new NodeType<Type>;
@@ -196,4 +291,20 @@ void CircularLinkedList<Type>::clear() {
 	}
 	last = NULL;
 	count = 0;
+}
+
+template<typename Type>
+bool CircularLinkedList<Type>::isExist(Type element) {
+	NodeType<Type>* newNode = new NodeType<Type>;
+	newNode = first;
+	bool found = false;
+	while (newNode != NULL and !found) {
+		if (newNode->info == element) {
+			found = true;
+		}
+		else {
+			newNode = newNode->next;
+		}
+	}
+	return found;
 }
