@@ -1,0 +1,16 @@
+o insertAtHead (elementType element) : void
+o insertAtEnd (elementType element) : void
+o insertAt (elementType element, int index) : void
+o removeAtHead () : void
+o removeAtEnd () : void
+o removeAt (int index) : void
+o retrieveAt (int index): elementType
+o replaceAt (elementType newElement, int index)
+o isExist (elementType element) : bool
+o isItemAtEqual (elementType element, int index) : bool
+o swap (int firstItemIdx, int secondItemIdx) : void // swap two nodes without 
+swapping data.
+o isEmpty () : bool
+o circularLinkedListSize () : int
+o clear (): void
+o print () : void
