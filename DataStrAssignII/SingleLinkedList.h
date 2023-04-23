@@ -69,6 +69,7 @@ void SingleLinkedList<Type>::swap(int indx1, int indx2) {
 	currY->next = currX->next;
 	currX->next = temp;
 }
+
 template<typename Type>
 bool SingleLinkedList<Type>::isItemAtEqual(Type element, int indx) {
 	int counter = 1;
