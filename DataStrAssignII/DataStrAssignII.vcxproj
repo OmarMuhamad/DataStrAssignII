@@ -129,6 +129,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DataStrAssignII.cpp" />
+    <ClCompile Include="InfixToPostFix.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArrayBasedList.h" />
