@@ -1,0 +1,19 @@
+o insertAtHead (elementType element) : void
+o insertAtTail (elementType element) : void
+o insertAt (elementType element, int index) : void
+o insertAfter (* prev_node, int data) : void
+o removeAtHead () : void
+o removeAtTail () : void
+o removeAt (int index) : void
+o retrieveAt (int index): elementType
+o replaceAt (elementType newElement, int index)
+o isExist (elementType element) : bool
+o isItemAtEqual (elementType element, int index) : bool
+o swap (int firstItemIdx, int secondItemIdx) : void // swap two nodes without 
+swapping data.
+o reverse () : void //reverse the data in the double linked list
+o isEmpty () : bool
+o doubleLinkedListSize () : int
+o clear (): void
+o forwardTraversal () : void //Print from head to tail
+o backwardTraversal () : void //Print from tail to head
