@@ -132,6 +132,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArrayBasedList.h" />
+    <ClInclude Include="CircularLinkedList.h" />
+    <ClInclude Include="DoublyLinkedList.h" />
     <ClInclude Include="QueueLinkedList.h" />
     <ClInclude Include="SingleLinkedList.h" />
     <ClInclude Include="StackLinkedList.h" />
