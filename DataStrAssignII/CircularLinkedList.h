@@ -5,7 +5,7 @@ struct NodeType {
 	Type info;
 	NodeType<Type>* next;
 };
-// same implementation of single but the remove(head, tail) will be updated
+// same implementation of single but the remove(head, tail) will be updated and any update function
 template<typename Type>
 class CircularLinkedList {
 private:
