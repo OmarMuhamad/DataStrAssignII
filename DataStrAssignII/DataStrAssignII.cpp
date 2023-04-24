@@ -3,9 +3,9 @@
 
 //#include "ArrayBasedList.h"
 //#include "SingleLinkedList.h"
-//#include "StackLinkedList.h"
-#include "QueueLinkedList.h"
+#include "StackLinkedList.h"
+//#include "QueueLinkedList.h"
 int main() {
-	generateBinaryNum(10);
+	cout << infixToPostfix("X^Y/(5*Z)+2");
 
 }

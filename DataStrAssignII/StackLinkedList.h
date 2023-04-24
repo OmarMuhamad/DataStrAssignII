@@ -64,46 +64,46 @@ public:
 		}
 		cout << endl;
 	}
-	int operatorPrec(char op) {
-		if (op == '^')
-			return 3;
-		else if (op == '/' or op == '*')
-			return 2;
-		else if (op == '+' or op == '-')
-			return 1;
-		else
-			return 0;
-	}
-	string infixToPostfix(string infix) {
-		Stack<char> st;
-		string postfix = "";
-		for (int i = 0; i < infix.size(); i++) {
-			if (isalpha(infix[i]) or (infix[i] >= '0' and infix[i] <= '9')) {
-				postfix += infix[i];
-			}
-			else if (infix[i] == '(') {
-				st.Push(infix[i]);
-			}
-			else if (infix[i] == ')') {
-				while (st.top() != '(') {
-					postfix += st.top();
-					st.Pop();
-				}
+};
+int operatorPrec(char op) {
+	if (op == '^')
+		return 3;
+	else if (op == '/' or op == '*')
+		return 2;
+	else if (op == '+' or op == '-')
+		return 1;
+	else
+		return 0;
+}
+string infixToPostfix(string infix) {
+	Stack<char> st;
+	string postfix = "";
+	for (int i = 0; i < infix.size(); i++) {
+		if (isalpha(infix[i]) or (infix[i] >= '0' and infix[i] <= '9')) {
+			postfix += infix[i];
+		}
+		else if (infix[i] == '(') {
+			st.Push(infix[i]);
+		}
+		else if (infix[i] == ')') {
+			while (st.top() != '(') {
+				postfix += st.top();
 				st.Pop();
 			}
-			// operator
-			else {
-				while (!st.isEmpty() and (operatorPrec(infix[i]) <= operatorPrec(st.top()))) {
-					postfix += st.top();
-					st.Pop();
-				}
-				st.Push(infix[i]);
-			}
-		}
-		while (!st.isEmpty()) {
-			postfix += st.top();
 			st.Pop();
 		}
-		return postfix;
+		// operator
+		else {
+			while (!st.isEmpty() and (operatorPrec(infix[i]) <= operatorPrec(st.top()))) {
+				postfix += st.top();
+				st.Pop();
+			}
+			st.Push(infix[i]);
+		}
 	}
-};
+	while (!st.isEmpty()) {
+		postfix += st.top();
+		st.Pop();
+	}
+	return postfix;
+}
