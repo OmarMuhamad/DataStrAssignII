@@ -18,9 +18,6 @@
     <ClCompile Include="DataStrAssignII.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="InfixToPostFix.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArrayBasedList.h">
