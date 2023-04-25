@@ -1,3 +1,5 @@
+// Queue Linked List Header With Functions
+// Author Omar Mohammad
 #include <iostream>
 using namespace std;
 
