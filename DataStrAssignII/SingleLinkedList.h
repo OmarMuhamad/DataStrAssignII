@@ -30,6 +30,9 @@ public:
 	int linkedListSize();
 	void clear();
 	void print();
+	NodeType<int>* returnFirst() {
+		return first;
+	}
 
 };
 template<typename Type>
@@ -321,7 +324,7 @@ void CombineNodes(NodeType<int>* first) {
 		if (newNode->info == 0 and start == false and end == false) {
 			st = newNode;
 		}
-		// if it is the second zero
+		// if it is the second zero(end)
 		else if (newNode->info == 0 and end == false and start == true) {
 			nd = newNode;
 		}
@@ -342,5 +345,5 @@ void CombineNodes(NodeType<int>* first) {
 		}
 		newNode = newNode->next; // iterate through the original ll
 	}
-
+	new_sll.print();
 }
