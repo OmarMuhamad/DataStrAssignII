@@ -311,7 +311,7 @@ void SingleLinkedList<Type>::clear(){
 }
 
 void CombineNodes(NodeType<int>* first) {
-	SingleLinkedList<int> sll;
+	SingleLinkedList<int> new_sll;
 	bool start, end; start = end = false;// start and end
 	NodeType<int>* st, * nd; // two pointers to start and end
 	NodeType<int>* newNode = new NodeType<int>; // to iterate
@@ -322,7 +322,25 @@ void CombineNodes(NodeType<int>* first) {
 			st = newNode;
 		}
 		// if it is the second zero
-		else if(newNode->info == 0 and end == false and start == true)
-		newNode = newNode->next;
+		else if (newNode->info == 0 and end == false and start == true) {
+			nd = newNode;
+		}
+		// if we found the start and end of the list (we found a range)
+		if (start and end) {
+			int sum = 0;
+			NodeType<int>* newNode1 = new NodeType<int>; // to iterate within the start and end
+			newNode1 = st->next;
+			// while the end is not reached
+			while (newNode1 != nd) {
+				sum += newNode1->info;
+				newNode1 = newNode1->next;
+			}
+			new_sll.insertAtTail(sum);
+			nd = st; // make the end of the range is the start of the next range
+			start = true; // mark the start of the next range to be true
+			end = false; // mark the end of the next range to be false
+		}
+		newNode = newNode->next; // iterate through the original ll
 	}
+
 }
