@@ -309,3 +309,20 @@ void SingleLinkedList<Type>::clear(){
 	last = NULL;
 	count = 0;
 }
+
+void CombineNodes(NodeType<int>* first) {
+	SingleLinkedList<int> sll;
+	bool start, end; start = end = false;// start and end
+	NodeType<int>* st, * nd; // two pointers to start and end
+	NodeType<int>* newNode = new NodeType<int>; // to iterate
+	newNode = first;
+	while (newNode != NULL) {
+		// if it is the first zero in the list
+		if (newNode->info == 0 and start == false and end == false) {
+			st = newNode;
+		}
+		// if it is the second zero
+		else if(newNode->info == 0 and end == false and start == true)
+		newNode = newNode->next;
+	}
+}
