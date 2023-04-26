@@ -1,6 +1,7 @@
 // Queue Linked List Header With Functions
 // Author Omar Mohammad
 #include <iostream>
+#include <string>
 using namespace std;
 
 template<typename Type>
@@ -125,8 +126,17 @@ void generateBinaryNum1(int limit) {
 }
 void genrateBinaryNum2(int limit) {
     Queue<string> qu;
+    int remainder;
+    int product = 1;
+    int binary = 0;
     for (int i = 1; i <= limit; i++) {
-
+        while (i != 0) {
+            remainder = i % 2;
+            binary = binary + (remainder * product);
+            i = i / 2;
+            product *= 10;
+        }
+        qu.enqueue(to_string(binary));
     }
 }
 template<typename Type>
