@@ -113,7 +113,7 @@ int Queue<Type>::queueSize() {
     return count;
 }
 
-void generateBinaryNum(int limit) {
+void generateBinaryNum1(int limit) {
     Queue<string> qu;
     qu.enqueue("1");
     for (int i = 1; i <= limit; i++) {
@@ -123,7 +123,12 @@ void generateBinaryNum(int limit) {
         qu.enqueue((binRep + "1"));
     }
 }
+void genrateBinaryNum2(int limit) {
+    Queue<string> qu;
+    for (int i = 1; i <= limit; i++) {
 
+    }
+}
 template<typename Type>
 void Queue<Type>::sortQueue(Queue<Type> qu) {
     // Implementation of queue sorting algorithm
