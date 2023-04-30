@@ -148,10 +148,21 @@ class StackBasedQueue {
 private:
     Queue<Type> stackOne, stackTwo;
 public:
-    // the idea is that 
+    /* 
+    the idea is that you will create a queue and each enqueue operation you will add the element to the first, 
+    if a dequeue operation will add a to a new queue but with a reversed order 
+    (it's like you are rebuilding a tower but from top so the bottom will be top and top will be bottom which we want
+    */
     void push(Type element){
         stackOne.enqueue(element);
     }
     void dequeue() {
+        if (stackTwo.isEmpty()) {
+            while (!stackOne.isEmpty()) {
+                stackTwo.enqueue(stackOne.dequeuee());
+                stackOne.pop();
+            }
+        }
+        stackTwo.dequeuee();
     }
 };
