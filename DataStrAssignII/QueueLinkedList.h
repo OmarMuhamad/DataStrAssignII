@@ -153,6 +153,5 @@ public:
         stackOne.enqueue(element);
     }
     void dequeue() {
-        
     }
 };
