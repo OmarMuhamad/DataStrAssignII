@@ -2,11 +2,11 @@
 // Last update 25/4/2023 
 
 //#include "ArrayBasedList.h"
-#include "SingleLinkedList.h"
-//#include "StackLinkedList.h"
+//#include "SingleLinkedList.h"
+#include "StackLinkedList.h"
 //#include "QueueLinkedList.h"
 int main() {
-	SingleLinkedList<int> ll;
+	/*SingleLinkedList<int> ll;
 	cout << "tc: 1" << endl;
 	ll.insertAtTail(0);
 	ll.insertAtTail(1);
@@ -27,6 +27,7 @@ int main() {
 	ll.insertAtTail(5);
 	ll.insertAtTail(2);
 	ll.insertAtTail(0);
-	CombineNodes(ll.returnFirst());
+	CombineNodes(ll.returnFirst());*/
+	cout << LongestValidParentheses(")()((()))))))()))");
 
 }
