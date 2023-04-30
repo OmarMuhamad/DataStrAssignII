@@ -108,5 +108,25 @@ string infixToPostfix(string infix) {
 	return postfix;
 }
 int LongestValidParentheses(string str) {
-	
+	Stack<char> st;
+	int mxRes = 0;
+	int temp = 0;
+	int oldMx = 0;
+	for (int i = 0; i < str.size(); i++) {
+		if (str[i] == '(') {
+			st.Push(str[i]);
+		}
+		//)()()))
+		else {
+			if (st.isEmpty() and str[i] == ')') {
+				oldMx = max(oldMx, mxRes);
+				mxRes = 0;
+			}
+			else if (st.top() == '(' and str[i] == ')') {
+				mxRes += 2;
+				st.Pop();
+			}
+		}
+	}
+	return oldMx;
 }
