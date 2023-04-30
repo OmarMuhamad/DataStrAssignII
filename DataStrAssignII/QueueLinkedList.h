@@ -143,3 +143,16 @@ template<typename Type>
 void Queue<Type>::sortQueue(Queue<Type> qu) {
     // Implementation of queue sorting algorithm
 }
+template<typename Type>
+class StackBasedQueue {
+private:
+    Queue<Type> stackOne, stackTwo;
+public:
+    // the idea is that 
+    void push(Type element){
+        stackOne.enqueue(element);
+    }
+    void dequeue() {
+        
+    }
+};
